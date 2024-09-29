@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import requireAuth from "@/lib/requireAuth";
 
 const postSchema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
@@ -128,4 +129,4 @@ const NewPost = () => {
   );
 };
 
-export default NewPost;
+export default requireAuth(NewPost);
